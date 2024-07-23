@@ -18,6 +18,7 @@ package sqlparser
 
 import (
 	"fmt"
+	"strconv"
 	"strings"
 
 	"vitess.io/vitess/go/sqltypes"
@@ -203,12 +204,12 @@ func (tkn *Tokenizer) Scan() (int, string) {
 				return OR, ""
 			}
 			return int(ch), ""
-		// case '?':
-		// 	tkn.posVarIndex++
-		// 	buf := make([]byte, 0, 8)
-		// 	buf = append(buf, ":v"...)
-		// 	buf = strconv.AppendInt(buf, int64(tkn.posVarIndex), 10)
-		// 	return VALUE_ARG, string(buf)
+		case '?':
+			tkn.posVarIndex++
+			buf := make([]byte, 0, 8)
+			buf = append(buf, ":v"...)
+			buf = strconv.AppendInt(buf, int64(tkn.posVarIndex), 10)
+			return VALUE_ARG, string(buf)
 		case '.':
 			return int(ch), ""
 		case '/':
