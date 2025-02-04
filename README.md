@@ -36,6 +36,9 @@ func main() {
 }
 ```
 
+## Comparison with Other Projects
+There is an existing project, [xwb1989/sqlparser](https://github.com/xwb1989/sqlparser), which is also a standalone clone of the Vitess SQL parser. However, it is outdated and requires manual updates to stay in sync with the original Vitess repository. This project aims to provide an actively maintained and regularly updated version of the SQL parser
+
 ## Features
 - Parses SQL queries into structured statements.
 - Supports multiple SQL statement types.
